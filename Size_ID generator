@@ -1,0 +1,40 @@
+import string
+import random
+from datetime import date
+from datetime import timedelta, date
+
+
+characters = list(string.ascii_lowercase + string.digits)
+
+def generate_sizeID():
+	## asking the length of Size ID from the user
+	length = int(input("Enter Size_ID length (3-6 characters): "))
+
+	## randomly shuffling the characters 
+	random.shuffle(characters)
+	
+	## pick random characters 
+	size_id = []
+	for i in range(length):
+		size_id.append(random.choice(characters))
+
+	## shuffling the final Size ID
+	random.shuffle(size_id)
+
+	## converting the list to string
+	## printing the list
+	print("".join(size_id))
+
+
+  ## calling the function
+print('Hi User, welcome to Size ID generator!')
+generate_sizeID()
+
+##Checking today's date
+today = date.today()
+##checking what date it will be in 60 days 
+EndDate = date.today() + timedelta(days=60)
+
+##printing out the today's date for the user and the date when the size ID would be expired
+print('Today is:', today)
+print('Your Size ID expires in 60 days on', EndDate)
